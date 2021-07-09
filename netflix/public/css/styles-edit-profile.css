@@ -1,0 +1,195 @@
+body{
+    background-color: #141414;
+    color: #ccc;
+    position: relative;
+    font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+div.full-page{
+    height: 100vh;
+}
+
+img#netflix-logo{
+    width: 6.5rem;
+}
+
+div#header{
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    background-image: linear-gradient(black, #141414);
+}
+
+.hr-heading{
+    margin-top: 0;
+}
+
+div.content-container{
+    max-width: 500px;
+    padding-bottom: 3rem;
+}
+h1{
+    color: white;
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+hr{
+    color: white;
+    height: 2px;
+    width: 100%;
+}
+
+div.input-container{
+    text-align: left;
+}
+
+#input-name{
+    background: #666;
+    color: #fff;
+    border: 1px solid transparent;
+    width: 18rem;
+    height: 2rem;
+}
+
+h5{
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+div.dropdown{
+    height: 2.5rem;
+    width: fit-content;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border: 2px solid rgba(255,255,255,.9);
+    background-color: #000;
+}
+
+.btn{
+    color: #fff;
+}
+
+#input-maturity{
+    background: #666;
+    color: #fff;
+    border: 1px solid transparent;
+    width: fit-content;
+    height: 2rem;
+    font-weight: 700;
+}
+
+.input-button{
+    background-color: #141414;
+    border: solid 1px gray;
+    color: gray;
+    font-size: 0.8rem;;
+}
+.full-width{
+    width: 100%;
+}
+
+.font-weight{
+    font-weight: 700;
+}
+
+.input-button-white{
+    background-color: white;
+    border: solid 1px white;
+    color: #141414;
+    font-size: 0.8rem;
+}
+
+.b-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .b-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+
+  .b-container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  .b-container input:checked ~ .checkmark {
+    background-color: #141414;
+    border: solid 1px gray;
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .b-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .b-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  svg{
+      left: 0;
+      bottom: 0;
+      margin-left: 13px;
+      margin-bottom: 46px;
+  }
+  
+
+@media only screen and (max-width: 575px){
+    div#header{
+        padding-left: 0;
+        display: flex;
+        justify-content: center;
+    }
+    img#netflix-logo{
+        width: 15rem;
+    }
+    h1{
+        text-align: center;
+    }
+    #input-name{
+        width: 80vw;
+    }
+    svg{
+        left: 0;
+        bottom: 0;
+        margin-left: 15px;
+        margin-bottom: 5px;
+    }
+}

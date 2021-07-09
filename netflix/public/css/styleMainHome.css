@@ -1,0 +1,170 @@
+body{
+    background-color: #141414;
+    min-height: 100vh;
+    font-family: "Open Sans", sans-serif;
+}
+h1{
+    color: white;
+    margin-top: 7px;
+    display: inline-block;
+}
+
+.section-title {
+    color: white;
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+
+}
+button{
+    color: white !important;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    size: 25px 54px;
+    
+
+}
+.brightness img:hover {
+    opacity: .7;
+}
+.card{
+
+    background-color: #141414!important;
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    padding-top: 0px;
+    cursor: pointer;
+}
+
+.bgMod{
+    background-color: #141414;
+
+}
+
+.iconAdjust{
+    color: rgb(136, 135, 135);
+    margin-top: 10px;
+}
+
+.iconAdjust:last-child{
+    margin-left: 2rem;
+}
+
+.marginAdjust{
+    margin-left: 20px;
+}
+
+.row-cards{
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.btn-genre{
+    margin-left: 2rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    vertical-align: middle;
+
+}
+
+.btn-genre > button {
+    background-color: transparent;
+    border-radius: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.genre {
+    display: flex;
+    align-items: center;
+}
+
+
+@media (max-width: 768px) { 
+    .card{
+        margin-bottom: 1rem !important;
+    }
+
+    .row-cards{
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+    }
+    .section-title {
+        margin-left: 1rem;
+    }
+
+}   
+
+
+@media (max-width: 447px) {
+    .btn-genre {
+        margin: 0px;
+    }
+
+    .genre{
+        display: inline-block;
+    }
+
+}
+   
+
+
+.card > img{
+    height: 160px;
+    object-fit: cover;
+    border: none;
+}
+
+.card:hover{
+    transform: scale(1.5);
+    background-color: #1b1b1b;
+    z-index: 100;
+    padding: 0 !important;
+    box-shadow: 1px 4px 4px 3px rgb(0 0 0 / 75%);
+    -webkit-box-shadow: 0px 2px 2px 2px rgb(0 0 0 / 75%);
+    -moz-box-shadow: 1px 4px 4px 3px rgba(0,0,0,0.75);
+    border-radius: 8px;
+    font-size: 10px;
+}
+
+/* Spinner */
+.loading {
+    height: 100%;
+    width: 0100%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    z-index: 100;
+    background-color: #ffffffab;
+
+}
+
+.loading>svg {
+    margin-top: 25vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    shape-rendering: auto;
+}
+
+.card a{
+    color: transparent;
+}
+
+.card a:hover{
+    color: antiquewhite;
+}
+
+h6{
+    font-size: .6em;
+}
+
+textarea {
+    max-width: 80%;
+}
+
+.translateMod{
+    transform: translateX(-10px)
+}

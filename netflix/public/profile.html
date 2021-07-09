@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+   
+   
+    <link href="css/styles-edit-profile.css" rel="stylesheet">
+    <title>Netflix</title>
+  </head>
+  <body>
+
+    <!--Edit Profile Page-->
+
+    <div class="full-page">
+
+      <div id="header" class="position-relative">
+        <a href="index.html"><img src="assets/netflix_logo.png" id="netflix-logo"/></a> 
+      </div>
+
+      <div class="container d-flex justify-content-center">
+
+        <div class="content-container w-100">
+
+          <div class="row d-flex justify-content-center">
+
+            <div class="col-12">
+              <h1>Edit Profile</h1>
+              <hr class="hr-heading">
+            </div>
+
+            <div class="col-2 d-sm-none"></div>
+            <div class="col-8 col-sm-3 position-relative">
+              <img src="assets/avatar.png" class="img-fluid"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square position-absolute" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+              </svg>
+            </div>
+            <div class="col-2 d-sm-none"></div>
+
+            <div class="col-11 col-sm-9 pt-3 pt-sm-0">
+              <div class="input-container">
+                <input type="text" value=" Strive Student" id="input-name">
+                <label for="dropdownMenuLink" class="d-block pt-3"><h5>Language:</h5></label>
+
+                <div class="dropdown">
+                  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    English
+                  </a>
+                
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">English</a>
+                    <a class="dropdown-item" href="#">Spanish</a>
+                    <a class="dropdown-item" href="#">Italian</a>
+                  </div>
+                </div>
+
+                
+                <hr>
+              </div>
+            </div>
+
+            <div class="d-none d-sm-block col-sm-3"></div>
+
+            <div class="col-11 col-sm-9">
+              <h5>Maturity Settings:</h5>
+              <input type="text" value="  ALL MATURITY RATINGS" disabled="disabled" id="input-maturity">
+              <p class="pt-2">Show titles of all maturity ratings for this profile</p>
+              <a href="settings.html">
+                <input type="button" value="EDIT"  class="input-button py-1 px-4"/>
+
+              </a>
+              <hr>
+            </div>
+
+            <div class="d-none d-sm-block col-sm-3"></div>
+
+            <div class="col-11 col-sm-9 pb-3">
+              <h5>Autoplay controls</h5>
+              
+              <label for="autoplay-next" class="b-container">Autoplay next episode in a series on all devices.
+                <input type="checkbox" id="autoplay-next" checked="checked"/>
+                <span class="checkmark"></span>
+              </label>
+
+
+              
+              <label for="autoplay-prev" class="b-container">Autoplay previews while browsing on all devices.
+                <input type="checkbox" id="autoplay-prev" checked="checked"/>
+                <span class="checkmark"></span>
+              </label>
+
+            </div>
+
+           <hr>
+
+          </div>
+
+          <div class="row d-flex justify-content-center">
+
+            <div class="col-5 col-sm-3">
+              <input type="button" value="SAVE" class="input-button-white font-weight full-width py-2 px-4"/>
+            </div>
+
+            <div class="col-7 col-sm-4">
+              <input type="button" value="CANCEL"  class="input-button font-weight full-width py-2 px-4"/>
+            </div>
+
+            <div class="col-12 col-sm-5 mt-2 mt-sm-0">
+              <input type="button" value="DELETE PROFILE"  class="input-button font-weight full-width py-2 px-4"/>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  </body>
+</html>
