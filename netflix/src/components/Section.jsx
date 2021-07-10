@@ -38,7 +38,6 @@ export default class Section extends React.Component {
     }
 
     render() {
-        console.log(this.state.movieList)
         return (
             <>
 
@@ -49,7 +48,6 @@ export default class Section extends React.Component {
                     <Row className="row-cols-sm-2 row-cols-md-4 row-cols-lg-6 px-3">
                         {this.state.isLoading && (<Loading></Loading>)}
                         {this.state.movieList.slice(0, 6).map((movie , i) => 
-
                             i < 2 ? <CardSearch responsiveness={'d-flex'} key={movie.imdbID} movie={movie}></CardSearch>
                             :  i < 5 && i > 2 ? <CardSearch responsiveness={'d-none d-md-flex'} key={movie.imdbID} movie={movie}></CardSearch>
                             : <CardSearch responsiveness={'d-none d-lg-flex'} key={movie.imdbID} movie={movie}></CardSearch>                           

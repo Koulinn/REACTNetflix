@@ -145,3 +145,8 @@ html {
 .extraMarginBot{
 margin-bottom: 128px;
 }
+
+.image-card-L{
+  object-fit: cover;
+  height: 100%
+}
