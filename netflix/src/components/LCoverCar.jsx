@@ -77,7 +77,7 @@ export default class LCoverCar extends Component {
     render() {
         return (
             <>
-                <h2 className="ml-4"> Trending </h2>
+                <h2 className="ml-4 mt-5 mb-4"> Trending </h2>
                 <Container className="p-0" fluid>
 
                     <Carousel className="w-100"
@@ -88,7 +88,6 @@ export default class LCoverCar extends Component {
                         {this.state.movieList.flat().map(query =>
                             <div className="largeCard position-relative h-100 justify-content-center">
                                 <img className="image-card-L h-100 w-100" src={query.Poster} alt="" />
-                                <h6 className="position-absolute title-Card-L">{query.Title}</h6>
                             </div>
                         )}
 
