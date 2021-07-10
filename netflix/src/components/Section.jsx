@@ -18,7 +18,7 @@ export default class Section extends React.Component {
             if (movieRes.ok) {
 
                 let movies = await movieRes.json()
-                let sortedMovies = movies.Search.sort(function(a, b) {
+                let sortedMovies = movies.Search.sort(function (a, b) {
                     return (a.Year < b.Year) ? -1 : (a.Year > b.Year) ? 1 : 0;
                 }).reverse();
                 this.setState({
@@ -42,25 +42,16 @@ export default class Section extends React.Component {
         return (
             <>
 
-                <Container className="bodySectionBG px-4" fluid>
+                <Container className="bodySectionBG px-4 mt-5" fluid>
                     <h2 className="">
                         {this.props.title} Movies
                     </h2>
                     <Row className="row-cols-sm-2 row-cols-md-4 row-cols-lg-6 px-3">
                         {this.state.isLoading && (<Loading></Loading>)}
-
                         {this.state.movieList.slice(0, 6).map(movie => <CardSearch key={movie.imdbID} movie={movie}></CardSearch>)}
-
-
                     </Row>
-
                 </Container>
             </>
-
-
         )
     }
-
-
-
 }

@@ -68,12 +68,12 @@ export default class Search extends Component {
 
   render() {
     return (
-      <Container className="px-4 my-5" fluid>
+      <Container className="px-4 mt-5" fluid>
         <Row className="d-flex flex-column">
           <h2 className="px-2 ml-2 align-items-center">Search</h2>
           <Form className="ml-3 mb-4 mt-3" inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(e) => this.searchMovies(e)} />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-warning">Search</Button>
           </Form>
         </Row>
         <div className="row row-cols-sm-2 row-cols-md-4 row-cols-lg-6">
@@ -81,13 +81,6 @@ export default class Search extends Component {
           {this.state.search.isLoading && <Loading></Loading>}
 
           {(this.state.search.movieCollection.map((movie) => <CardSearch key={movie.imdbID} movie={movie}/>))}
-
-
-
-          {/* {(this.state.search.movieCollection.map((movie) => <Card className="card col align-items-center mb-4 px-1">
-                            <Card.Img className="card-img-top imageFix" variant="top" src={movie.Poster}></Card.Img>
-
-                        </Card>))} */}
         </div>
       </Container>
     );

@@ -129,6 +129,28 @@ button{
     font-size: 10px;
 }
 
+.card:hover h6, .card:hover button, .card:hover textarea{
+    font-size: 12px;
+}
+.card:hover textarea{
+    font-size: 10px;
+}
+
+.card button:hover{
+    color: #141414!important;
+    font-weight: 600;
+}
+
+.bgMod{
+    background-color: #272727;
+    padding-top: 8px!important;
+}
+
+textarea{
+    background-color: whitesmoke;
+    padding: 8px 12px !important;
+}
+
 /* Spinner */
 .loading {
     height: 100%;
@@ -157,14 +179,13 @@ button{
     color: antiquewhite;
 }
 
-h6{
-    font-size: .6em;
+.commentInput > textarea{
+    border: none;
 }
 
-textarea {
-    max-width: 80%;
+.fontMod{
+    font-size: 8px;
+    color: antiquewhite;
 }
 
-.translateMod{
-    transform: translateX(-10px)
-}
+
