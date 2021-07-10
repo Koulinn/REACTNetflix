@@ -36,7 +36,7 @@ export default class ReviewList extends Component {
 
     render() {
         return (
-            <div className="mb-2 px-2">
+            <div className="mb-2 px-2 fade">
                 {this.state.isLoading ? <Spinner animation="border" variant="danger" size='sm'/> : ''}
                 {this.state.commentList.length === 0 &&<p className="fontMod">Write the first comment for this movie</p>}
 

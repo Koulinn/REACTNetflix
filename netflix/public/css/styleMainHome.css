@@ -31,8 +31,8 @@ button{
 
     background-color: #141414!important;
     transition-property: all;
-    transition-duration: 1s;
-    transition-timing-function: ease;
+    transition-duration: .3s;
+    transition-timing-function: linear;
     padding-top: 0px;
     cursor: pointer;
 }
@@ -189,3 +189,14 @@ textarea{
 }
 
 
+
+.fade {  
+    animation: fadeIn linear 1.3s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
