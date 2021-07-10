@@ -16,6 +16,10 @@ export default class AddComment extends Component {
         }
     };
 
+    isCommentSend = (check, checkSub) =>{
+        this.props.isCommentSend(check, checkSub)
+    }
+
 
     inputHandler = (key, value) => {
         this.setState({
@@ -40,19 +44,24 @@ export default class AddComment extends Component {
     sendForm = async (e) => {
         e.preventDefault()
 
-        let resData = await fetch('https://striveschool-api.herokuapp.com/api/comments/', {
-            method: 'POST',
-            body: JSON.stringify(this.state.userReview),
-            headers: {
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNWYwNmIzNTgxNzAwMTVjMjI3MDUiLCJpYXQiOjE2MjUwNTQ5ODIsImV4cCI6MTYyNjI2NDU4Mn0.JwwVnNEQqYHceQ2fscSxdyITJxc4U7GeQFaHsd0Vs0Y",
-                "Content-Type": "application/json"
-            }
-        })
-
-        let res = await resData.json()
-        console.log(res, '<<<<<POST response')
-
-
+        try {
+            
+            
+            let resData = await fetch('https://striveschool-api.herokuapp.com/api/comments/', {
+                method: 'POST',
+                body: JSON.stringify(this.state.userReview),
+                headers: {
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNWYwNmIzNTgxNzAwMTVjMjI3MDUiLCJpYXQiOjE2MjUwNTQ5ODIsImV4cCI6MTYyNjI2NDU4Mn0.JwwVnNEQqYHceQ2fscSxdyITJxc4U7GeQFaHsd0Vs0Y",
+                    "Content-Type": "application/json"
+                }
+            })
+            
+            let res = await resData.json()
+            this.isCommentSend(false, true)
+        } catch (error) {
+            this.isCommentSend(false, 'error')
+            
+        }
     }
     render() {
         console.log(this.props)

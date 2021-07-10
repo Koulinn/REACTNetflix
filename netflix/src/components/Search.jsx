@@ -21,11 +21,10 @@ export default class Search extends Component {
         this.setState({
           search: {
             isLoading: true,
-            movieCollection: [...this.search.movieCollection]
+            movieCollection: {...this.search.movieCollection}
           }
         })
       } else {
-
         let resp = await fetch('http://www.omdbapi.com/?apikey=1aad5b7f&s=' + e.target.value)
         let moviesResp = await resp.json()
         let movies = moviesResp.Search.filter(moviesWithCover => moviesWithCover.Poster.length > 5)
@@ -42,8 +41,8 @@ export default class Search extends Component {
         }) }
       
 
-
     } catch (error) {
+      console.log('cattttttttttttttttttttttttt')
       if(e.target.value === ''){
         this.setState({
           search: {
@@ -60,10 +59,7 @@ export default class Search extends Component {
           isLoading: true
         }
       })
-
     }
-
-
   }
 
   render() {
