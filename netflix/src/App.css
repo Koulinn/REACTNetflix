@@ -50,8 +50,17 @@ li {
   margin: 4px;
 }
 
-.NavBar {
+/* .NavBar {
   padding: 0px;
   margin: 0px;
-}
+} */
 
+
+
+.img-logo {
+  height: 100%;
+  width: 128px;
+}
+.nav-icons {
+  color: white;
+}
