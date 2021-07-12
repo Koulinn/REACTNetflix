@@ -10,28 +10,30 @@ export default class Search extends Component {
       movieCollection: [],
       isLoading: false
     },
-    searchInput: ''
+    searchInput: '',
+    searchError:false
   };
 
   componentDidUpdate = (prevProps, prevState) =>{
-    console.log('insideupdate', this.state.searchInput)
     if(prevState.searchInput !== this.state.searchInput){
-      console.log('inside if<<<<<<<')
       this.searchMovies()
     }
 
   }
 
   searchMovies = async () => {
-    console.log('inside searchmovies')
     try {
-
       if (this.state.searchInput.length <= 2) {
+        console.log('just 2 chars')
         this.setState({
           search: {
             isLoading: true,
-            movieCollection: {...this.search.movieCollection}
+            movieCollection: [...this.state.search.movieCollection]
           }
+        }, () => {
+          setTimeout(()=> this.setState({
+            searchError:true
+          }), 5000)
         })
       } else {
         let resp = await fetch('http://www.omdbapi.com/?apikey=1aad5b7f&s=' + this.state.searchInput)
@@ -51,16 +53,20 @@ export default class Search extends Component {
       
 
     } catch (error) {
-      console.log('cattttttttttttttttttttttttt')
+      console.log('fell in the catch')
       if(this.state.searchInput === ''){
         this.setState({
           search: {
             isLoading: false,
-            movieCollection: []
+            movieCollection: [],
+            searchError: false
           }
         })
         return
     }
+
+
+
       this.setState({
         search: {
           searchInput: this.state.searchInput,
@@ -71,13 +77,14 @@ export default class Search extends Component {
     }
   }
 
+
+
   render() {
     return (
       <Container className="px-4 mt-5" fluid>
         <Row className="d-flex flex-column">
           <h2 className="px-2 ml-2 align-items-center">Search</h2>
           <Form className="ml-3 mb-4 mt-3" inline>
-            {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(e) => this.searchMovies(e)} /> */}
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(e) => this.setState({
                   ...this.state,
                   searchInput: e.target.value

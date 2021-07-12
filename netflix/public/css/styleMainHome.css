@@ -146,6 +146,10 @@ button{
     padding-top: 8px!important;
 }
 
+.cursorMod{
+    cursor: default;
+}
+
 textarea{
     background-color: whitesmoke;
     padding: 8px 12px !important;
