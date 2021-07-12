@@ -7,17 +7,26 @@ export default class Search extends Component {
 
   state = {
     search: {
-      searchInput: '',
       movieCollection: [],
       isLoading: false
-    }
+    },
+    searchInput: ''
   };
 
-  searchMovies = async (e) => {
-    e.preventDefault()
+  componentDidUpdate = (prevProps, prevState) =>{
+    console.log('insideupdate', this.state.searchInput)
+    if(prevState.searchInput !== this.state.searchInput){
+      console.log('inside if<<<<<<<')
+      this.searchMovies()
+    }
+
+  }
+
+  searchMovies = async () => {
+    console.log('inside searchmovies')
     try {
 
-      if (e.target.value.length > 1 && e.target.value <= 2) {
+      if (this.state.searchInput.length <= 2) {
         this.setState({
           search: {
             isLoading: true,
@@ -25,7 +34,7 @@ export default class Search extends Component {
           }
         })
       } else {
-        let resp = await fetch('http://www.omdbapi.com/?apikey=1aad5b7f&s=' + e.target.value)
+        let resp = await fetch('http://www.omdbapi.com/?apikey=1aad5b7f&s=' + this.state.searchInput)
         let moviesResp = await resp.json()
         let movies = moviesResp.Search.filter(moviesWithCover => moviesWithCover.Poster.length > 5)
         let sortedMovies = movies.sort(function(a, b) {
@@ -34,7 +43,7 @@ export default class Search extends Component {
      
         this.setState({
           search: {
-            searchInput: e.target.value,
+            searchInput: this.state.searchInput,
             movieCollection: [...sortedMovies],
             isLoading: false
           }
@@ -43,7 +52,7 @@ export default class Search extends Component {
 
     } catch (error) {
       console.log('cattttttttttttttttttttttttt')
-      if(e.target.value === ''){
+      if(this.state.searchInput === ''){
         this.setState({
           search: {
             isLoading: false,
@@ -54,7 +63,7 @@ export default class Search extends Component {
     }
       this.setState({
         search: {
-          searchInput: e.target.value,
+          searchInput: this.state.searchInput,
           movieCollection: [],
           isLoading: true
         }
@@ -68,7 +77,11 @@ export default class Search extends Component {
         <Row className="d-flex flex-column">
           <h2 className="px-2 ml-2 align-items-center">Search</h2>
           <Form className="ml-3 mb-4 mt-3" inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(e) => this.searchMovies(e)} />
+            {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(e) => this.searchMovies(e)} /> */}
+                <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(e) => this.setState({
+                  ...this.state,
+                  searchInput: e.target.value
+                })} />
             <Button variant="outline-warning">Search</Button>
           </Form>
         </Row>
