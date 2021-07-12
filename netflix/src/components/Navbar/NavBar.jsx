@@ -21,7 +21,7 @@ class NavBar extends Component {
             <p className="pt-3 mr-3 text-white">KIDS</p>
             <FaBell className="mr-3 nav-icons"/>
             <img src="./assets/kidssecond.png" className="mr-1" alt=""></img>
-            <FaSortDown className="nav-icons"/>
+            <FaSortDown className="nav-icons fixed-alignment"/>
           </Form>
         </Navbar>
      </Container>

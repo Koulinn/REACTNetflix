@@ -86,7 +86,7 @@ export default class LCoverCar extends Component {
                         centerMode={true}
                     >
                         {this.state.movieList.flat().map(query =>
-                            <div className="largeCard position-relative h-100 justify-content-center">
+                            <div key={query.imdbID} className="largeCard position-relative h-100 justify-content-center">
                                 <img className="image-card-L h-100 w-100" src={query.Poster} alt="" />
                             </div>
                         )}

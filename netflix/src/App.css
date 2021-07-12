@@ -64,3 +64,9 @@ li {
 .nav-icons {
   color: white;
 }
+
+
+.fixed-alignment{
+  transform: translateY(-30%);
+
+}
