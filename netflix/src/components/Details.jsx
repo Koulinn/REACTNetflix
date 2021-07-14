@@ -1,10 +1,12 @@
 import React , {useState, useEffect} from 'react'
-import {Container} from 'react-bootstrap'
+import { Badge, Col, Container, Row} from 'react-bootstrap'
+import ReviewList from './ReviewList'
 
 export default function Details(props) {
     const [movie, setMovie] = useState(null)
     const [notFound, setNotFound] = useState(false)
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
+    const [comments, setComments] = useState([])
     
 
     useEffect(()=>{
@@ -15,19 +17,35 @@ export default function Details(props) {
         try {
             
             let resp = await fetch('http://www.omdbapi.com/?apikey=1aad5b7f&i=' + props.match.params.movieId)
-    
-            let moviesResp = await resp.json()
-            console.log(moviesResp, "<<<<<<<<<<<details request")
+            
+            if(resp.ok){
+                let moviesResp = await resp.json()
+                setIsLoading(false)
+                setMovie({...moviesResp})
+            }
+           
         } catch (error) {
+            setNotFound(true)
             
         }
 
     }
-
-
     return (
         <Container>
-            <h1>Details Page</h1>
+            <Row>
+               <>
+               {
+                   movie && (
+                   <Col>
+                    <h1>{movie.Title}</h1>
+                    <img src={movie.Poster}></img>
+                    {movie.Ratings.map((rating, i) => (<Badge key={i}>{rating.Value} {rating.Source}</Badge>))}
+                    <p>Year: {movie.Year}</p>
+                    <ReviewList movieId={props.match.params.movieId}></ReviewList>
+                    </Col>)
+               }
+               </>
+            </Row>
         </Container>
     )
 }

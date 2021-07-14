@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Container, Row } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 import Loading from './Loading'
 import CardSearch from './CardSearch'
 
@@ -48,7 +48,7 @@ export default class Section extends React.Component {
                     <Row className="row-cols-sm-2 row-cols-md-4 row-cols-lg-6 px-3">
                         {this.state.isLoading && (<Loading></Loading>)}
                         {this.state.movieList.slice(0, 6).map((movie , i) => 
-                            i < 2 ? <CardSearch history={this.props.history} responsiveness={'d-flex'} key={movie.imdbID} movie={movie}></CardSearch>
+                            i < 2 ? <CardSearch sectionName={this.props.title} history={this.props.history} responsiveness={'d-flex'} key={movie.imdbID} movie={movie}></CardSearch>
                             :  i < 5 && i > 2 ? <CardSearch history={this.props.history} responsiveness={'d-none d-md-flex'} key={movie.imdbID} movie={movie}></CardSearch>
                             : <CardSearch history={this.props.history} responsiveness={'d-none d-lg-flex'} key={movie.imdbID} movie={movie}></CardSearch>                           
                         )
