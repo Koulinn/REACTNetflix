@@ -49,8 +49,8 @@ export default class Section extends React.Component {
                         {this.state.isLoading && (<Loading></Loading>)}
                         {this.state.movieList.slice(0, 6).map((movie , i) => 
                             i < 2 ? <CardSearch sectionName={this.props.title} history={this.props.history} responsiveness={'d-flex'} key={movie.imdbID} movie={movie}></CardSearch>
-                            :  i < 5 && i > 2 ? <CardSearch history={this.props.history} responsiveness={'d-none d-md-flex'} key={movie.imdbID} movie={movie}></CardSearch>
-                            : <CardSearch history={this.props.history} responsiveness={'d-none d-lg-flex'} key={movie.imdbID} movie={movie}></CardSearch>                           
+                            :  i < 5 && i > 2 ? <CardSearch sectionName={this.props.title} history={this.props.history} responsiveness={'d-none d-md-flex'} key={movie.imdbID} movie={movie}></CardSearch>
+                            : <CardSearch sectionName={this.props.title} history={this.props.history} responsiveness={'d-none d-lg-flex'} key={movie.imdbID} movie={movie}></CardSearch>                           
                         )
                     }
                         

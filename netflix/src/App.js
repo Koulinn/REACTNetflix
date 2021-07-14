@@ -18,7 +18,7 @@ function App() {
       <NavBarComp></NavBarComp>
       <Router>
         <Route path="/" exact render={(routerProps) => <Home {...routerProps}></Home>}></Route>
-        <Route component={Details} path="/details/:movieId"/>
+        <Route component={Details} path="/details/:movieId/:sectionTitle"/>
       </Router>
       <Footer></Footer>
     </>

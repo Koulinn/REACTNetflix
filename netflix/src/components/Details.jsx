@@ -30,6 +30,7 @@ export default function Details(props) {
         }
 
     }
+    console.log(props.match.params.sectionTitle)
     return (
         <Container>
             <Row>
@@ -37,9 +38,10 @@ export default function Details(props) {
                {
                    movie && (
                    <Col>
-                    <h1>{movie.Title}</h1>
+                    <h6>{props.match.params.sectionTitle}</h6>
+                    <h3>{movie.Title}</h3>
                     <img src={movie.Poster}></img>
-                    {movie.Ratings.map((rating, i) => (<Badge key={i}>{rating.Value} {rating.Source}</Badge>))}
+                    {movie.Ratings.map((rating, i ) => (<Badge key={i}>{rating.Value} {rating.Source}</Badge>))}
                     <p>Year: {movie.Year}</p>
                     <ReviewList movieId={props.match.params.movieId}></ReviewList>
                     </Col>)
