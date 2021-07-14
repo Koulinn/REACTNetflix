@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom'
 import ShowSection from './ShowSection'
 
 function Shows(props) {
-    console.log(props.history)
     
     return (
         <div>

@@ -7,7 +7,6 @@ export default function ShowSection(props) {
     const [series, setSeries] = useState([])
     const [notFound, setNotFound] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
-    console.log(props)
     
     useEffect(() =>  getSeriesDetails(props.genre)
     , [])
@@ -19,7 +18,6 @@ export default function ShowSection(props) {
                 let serieResp = await resp.json()
                 setIsLoading(false)
                setSeries([...serieResp.Search.slice(0,6)])
-               console.log(series, '<<<<<<<<<<<<<<<<<<<<<<<<')
             }
         } catch (error) {
             setNotFound(true)
@@ -28,7 +26,7 @@ export default function ShowSection(props) {
     return (
       
         <Container className="bodySectionBG px-4 mt-5" fluid>
-                    <h2 className="">
+                    <h2 className="firstToUppercase">
                         {props.genre}
                     </h2>
                     <Row className="row-cols-sm-2 row-cols-md-4 row-cols-lg-6 px-3">

@@ -37,7 +37,7 @@ export default function Details(props) {
                     {
                         movie && (
                             <Col className="d-flex flex-column justify-content-center">
-                                <h6>{props.match.params.sectionTitle}</h6>
+                                <h6 className="firstToUppercase">{props.match.params.sectionTitle}</h6>
                                 <h3>{movie.Title}</h3>
                                 <img className="maxHeight" src={movie.Poster} alt=""></img>
                                 <div>{movie.Ratings.map((rating, i) => (<Badge key={i}>{rating.Value} {rating.Source}</Badge>))}</div>

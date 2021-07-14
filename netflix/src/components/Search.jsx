@@ -79,7 +79,6 @@ export default class Search extends Component {
 
 
   render() {
-    console.log(this.state.search.movieCollection)
     return (
       <Container className="px-4 mt-5" fluid>
         <Row className="d-flex flex-column">

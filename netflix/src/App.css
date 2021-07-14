@@ -75,3 +75,7 @@ li {
   max-height: 25% !important; 
   object-fit: contain !important;
 }
+
+.firstToUppercase{
+  text-transform: capitalize;
+}
