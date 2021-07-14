@@ -5,6 +5,10 @@ import NavBarComp from './components/Navbar/NavBar';
 import Footer from './components/Footer/Footer'
 import Search from './components/Search'
 import LCoverCar from './components/LCoverCar';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Home from './components/Home';
+import Details from './components/Details';
+
 
 
 
@@ -12,11 +16,10 @@ function App() {
   return (
     <>
       <NavBarComp></NavBarComp>
-      <LCoverCar query1="marvel" query2="batman" query3="toy story"></LCoverCar>
-      <Search></Search>
-      <Section title="Harry Potter"></Section>
-      <Section title="Lord of the Rings"></Section>
-      <Section title="Horror"></Section>
+      <Router>
+        <Route path="/" exact render={(routerProps) => <Home {...routerProps}></Home>}></Route>
+        <Route component={Details} path="/details/:movieId"/>
+      </Router>
       <Footer></Footer>
     </>
   );
