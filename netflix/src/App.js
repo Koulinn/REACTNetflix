@@ -15,10 +15,11 @@ import Details from './components/Details';
 function App() {
   return (
     <>
-      <NavBarComp></NavBarComp>
       <Router>
-        <Route path="/" exact render={(routerProps) => <Home {...routerProps}></Home>}></Route>
+        <NavBarComp></NavBarComp>
+        <Route path="/home" exact render={(routerProps) => <Home {...routerProps}></Home>}></Route>
         <Route component={Details} path="/details/:movieId/:sectionTitle"/>
+        <Route path="/shows" exact></Route>
       </Router>
       <Footer></Footer>
     </>
