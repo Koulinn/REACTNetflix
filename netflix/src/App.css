@@ -70,3 +70,8 @@ li {
   transform: translateY(-30%);
 
 }
+
+.imageDetails{
+  max-height: 25% !important; 
+  object-fit: contain !important;
+}
