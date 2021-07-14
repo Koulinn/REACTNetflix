@@ -79,3 +79,17 @@ li {
 .firstToUppercase{
   text-transform: capitalize;
 }
+
+#details h6, #details div{
+  font-size: 1rem;
+
+}
+
+#details textarea {
+  max-width: 256px;
+}
+
+#details img {
+  max-height: 256px;
+  object-fit: contain;
+}

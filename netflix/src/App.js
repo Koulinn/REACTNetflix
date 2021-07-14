@@ -17,7 +17,7 @@ function App() {
         <NavBarComp></NavBarComp>
         <Route path="/" exact render={(routerProps) => <Home {...routerProps}></Home>}></Route>
         <Route component={Details} path="/details/:movieId/:sectionTitle"/>
-        <Route path="/shows" exact render={() => <Shows genres={['comedy', 'adventure', 'romance', 'drama']}></Shows>}></Route>
+        <Route path="/shows" exact render={() => <Shows sectionName='TV Shows' genres={['comedy', 'adventure', 'romance', 'drama']}></Shows>}></Route>
       </Router>
       <Footer></Footer>
     </>

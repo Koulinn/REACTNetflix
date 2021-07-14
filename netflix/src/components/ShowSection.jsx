@@ -27,17 +27,17 @@ export default function ShowSection(props) {
       
         <Container className="bodySectionBG px-4 mt-5" fluid>
                     <h2 className="firstToUppercase">
-                        {props.genre}
+                    {props.genre}
                     </h2>
                     <Row className="row-cols-sm-2 row-cols-md-4 row-cols-lg-6 px-3">
                         {isLoading && (<Loading></Loading>)}
                         {series.length > 0 && (series.map((movie , i) => 
-                            i < 2 ? <CardSearch sectionName={props.title} history={props.history} responsiveness={'d-flex'} key={movie.imdbID} movie={movie}></CardSearch>
-                            :  i < 5 && i > 2 ? <CardSearch sectionName={props.title} history={props.history} responsiveness={'d-none d-md-flex'} key={movie.imdbID} movie={movie}></CardSearch>
+                            i < 2 ? <CardSearch sectionName={props.genre} history={props.history} responsiveness={'d-flex'} key={movie.imdbID} movie={movie}></CardSearch>
+                            :  i < 5 && i > 2 ? <CardSearch sectionName={props.genre} history={props.history} responsiveness={'d-none d-md-flex'} key={movie.imdbID} movie={movie}></CardSearch>
                             : <CardSearch sectionName={props.genre} history={props.history} responsiveness={'d-none d-lg-flex'} key={movie.imdbID} movie={movie}></CardSearch>                           
                         ))
                     }
-                        
+                        {console.log(props.genre, '<<<<<<<<<<<<<<<<<<<')}
                     </Row>
                 </Container>
     )

@@ -6,8 +6,8 @@ function Shows(props) {
     
     return (
         <div>
-           <h2>TV Shows</h2>
-            {props.genres.map(genre=><ShowSection genre={genre} history={props.history}></ShowSection>)}
+           <h2 className="px-4">{props.sectionName}</h2>
+            {props.genres.map((genre, i)=><ShowSection key={i} genre={genre} history={props.history}></ShowSection>)}
         </div>
     )
 }
