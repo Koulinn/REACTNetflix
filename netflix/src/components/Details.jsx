@@ -6,7 +6,6 @@ export default function Details(props) {
     const [movie, setMovie] = useState(null)
     const [notFound, setNotFound] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
-    const [comments, setComments] = useState([])
 
 
     useEffect(() => {
@@ -40,7 +39,7 @@ export default function Details(props) {
                             <Col className="d-flex flex-column justify-content-center">
                                 <h6>{props.match.params.sectionTitle}</h6>
                                 <h3>{movie.Title}</h3>
-                                <img className="maxHeight" src={movie.Poster}></img>
+                                <img className="maxHeight" src={movie.Poster} alt=""></img>
                                 <div>{movie.Ratings.map((rating, i) => (<Badge key={i}>{rating.Value} {rating.Source}</Badge>))}</div>
                                 <p>Year: {movie.Year}</p>
                                 <ReviewList movieId={props.match.params.movieId}></ReviewList>

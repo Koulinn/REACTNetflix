@@ -56,7 +56,7 @@ export default class AddComment extends Component {
                 }
             })
             
-            let res = await resData.json()
+            // let res = await resData.json()
             this.isCommentSend(false, true)
         } catch (error) {
             this.isCommentSend(false, 'error')
