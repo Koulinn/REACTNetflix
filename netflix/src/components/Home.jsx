@@ -3,14 +3,15 @@ import Search from './Search'
 import LCoverCar from './LCoverCar'
 import Section from './Section'
 
-export default function Home() {
+export default function Home({history}) {
+    console.log(history)
     return (
         <>
-            <LCoverCar query1="marvel" query2="batman" query3="toy story"></LCoverCar>
-            <Search></Search>
-            <Section title="Harry Potter"></Section>
-            <Section title="Lord of the Rings"></Section>
-            <Section title="Horror"></Section>
+            <LCoverCar history={history} query1="marvel" query2="batman" query3="toy story"></LCoverCar>
+            <Search history={history}></Search>
+            <Section history={history} title="Harry Potter"></Section>
+            <Section history={history} title="Lord of the Rings"></Section>
+            <Section history={history} title="Horror"></Section>
 
         </>
     )

@@ -96,7 +96,7 @@ export default class Search extends Component {
 
           {this.state.search.isLoading && <Loading></Loading>}
 
-          {(this.state.search.movieCollection.map((movie) => <CardSearch key={movie.imdbID} movie={movie}/>))}
+          {(this.state.search.movieCollection.map((movie) => <CardSearch history={this.props.history} key={movie.imdbID} movie={movie}/>))}
         </div>
       </Container>
     );
