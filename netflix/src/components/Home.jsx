@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import Search from './Search'
 import LCoverCar from './LCoverCar'
 import Section from './Section'
