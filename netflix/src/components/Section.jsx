@@ -13,12 +13,12 @@ export default class Section extends React.Component {
     componentDidMount = async () => {
         try {
 
-            let movieRes = await fetch('http://www.omdbapi.com/?apikey=1aad5b7f&s=' + this.props.title)
+            let movieRes = await fetch('http://localhost:3003/media?search=' + this.props.title)
 
             if (movieRes.ok) {
 
                 let movies = await movieRes.json()
-                let sortedMovies = movies.Search.sort(function (a, b) {
+                let sortedMovies = movies.sort(function (a, b) {
                     return (a.Year < b.Year) ? -1 : (a.Year > b.Year) ? 1 : 0;
                 }).reverse();
                 this.setState({
