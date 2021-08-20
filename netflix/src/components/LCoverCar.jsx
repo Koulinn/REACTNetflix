@@ -33,9 +33,9 @@ export default class LCoverCar extends Component {
             let promisees = []
             let auxList = []
 
-            let movieRes1 = await fetch('http://www.omdbapi.com/?apikey=1aad5b7f&s=' + this.props.query1)
-            let movieRes2 = await fetch('http://www.omdbapi.com/?apikey=1aad5b7f&s=' + this.props.query2)
-            let movieRes3 = await fetch('http://www.omdbapi.com/?apikey=1aad5b7f&s=' + this.props.query3)
+            let movieRes1 = await fetch(process.env.URL_DEV + '?search=' + this.props.query1)
+            let movieRes2 = await fetch(process.env.URL_DEV + '?search=' + this.props.query2)
+            let movieRes3 = await fetch(process.env.URL_DEV + '?search=' + this.props.query3)
             promisees.push(movieRes1.json())
             promisees.push(movieRes2.json())
             promisees.push(movieRes3.json())
