@@ -28,7 +28,7 @@ export default function Details(props) {
     const getMovieDetails = async () => {
         try {
 
-            let resp = await fetch('http://www.omdbapi.com/?apikey=1aad5b7f&i=' + props.match.params.movieId)
+            let resp = await fetch('http://localhost:3003/media?id=' + props.match.params.movieId)
 
             if (resp.ok) {
                 let moviesResp = await resp.json()
@@ -53,7 +53,7 @@ export default function Details(props) {
                                 <h6 className="firstToUppercase">{props.match.params.sectionTitle}</h6>
                                 <h3>{movie.Title}</h3>
                                 <img className="maxHeight" src={movie.Poster} alt=""></img>
-                                <div>{movie.Ratings.map((rating, i) => (<Badge key={i} variant="warning">{rating.Value} {rating.Source}</Badge>))}</div>
+                                <div className={movie.Ratings ? "d-block" : 'd-none'}>{movie.Ratings ? movie.Ratings.map((rating, i) => (<Badge key={i} variant="warning">{rating.Value} {rating.Source}</Badge>)) : ''}</div>
                                 <p>Year: {movie.Year}</p>
                                 <ReviewList movieId={props.match.params.movieId}></ReviewList>
                                 <AddComment movieId={movie.imdbID} isCommentSend={isCommentSend}></AddComment>
