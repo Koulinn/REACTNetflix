@@ -29,22 +29,23 @@ export default class LCoverCar extends Component {
     };
 
     componentDidMount = async () => {
+        console.log(process.env.REACT_APP_CLIENT_ID, '<<<< Proccess ENV')
         try {
             let promisees = []
             let auxList = []
 
-            let movieRes1 = await fetch(process.env.URL_DEV + '?search=' + this.props.query1)
-            let movieRes2 = await fetch(process.env.URL_DEV + '?search=' + this.props.query2)
-            let movieRes3 = await fetch(process.env.URL_DEV + '?search=' + this.props.query3)
+            let movieRes1 = await fetch('http://localhost:3003/media?search=' + this.props.query1)
+            let movieRes2 = await fetch('http://localhost:3003/media?search=' + this.props.query2)
+            let movieRes3 = await fetch('http://localhost:3003/media?search=' + this.props.query3)
             promisees.push(movieRes1.json())
             promisees.push(movieRes2.json())
             promisees.push(movieRes3.json())
 
-
             if (movieRes1.ok && movieRes2.ok && movieRes3.ok) {
                 let movies = await Promise.all(promisees)
+                console.log(movies)
                 movies.forEach((query, i) => {
-                    auxList.push(query.Search)
+                    auxList.push(query)
                 })
 
                 let sortedList = auxList.map((query) => {
@@ -71,6 +72,7 @@ export default class LCoverCar extends Component {
             }
 
         } catch (err) {
+            console.log(err, 'from Large Cover comp')
         }
     }
 
