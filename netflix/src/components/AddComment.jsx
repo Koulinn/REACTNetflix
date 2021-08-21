@@ -11,8 +11,7 @@ export default class AddComment extends Component {
     state = {
         userReview: {
             comment: '',
-            rate: 0,
-            elementId: this.props.movieId
+            ratting: 0,
         }
     };
 
@@ -35,7 +34,7 @@ export default class AddComment extends Component {
         this.setState({
             userReview: {
                 ...this.state.userReview,
-                rate: newRating
+                ratting: newRating
             }
         });
     }
@@ -47,11 +46,10 @@ export default class AddComment extends Component {
         try {
             
             
-            let resData = await fetch('https://striveschool-api.herokuapp.com/api/comments/', {
+            let resData = await fetch(process.env.REACT_APP_URL_DEV + `/${this.props.movieId}/review`, {
                 method: 'POST',
                 body: JSON.stringify(this.state.userReview),
                 headers: {
-                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRjNWYwNmIzNTgxNzAwMTVjMjI3MDUiLCJpYXQiOjE2MjYyNzAyMjMsImV4cCI6MTYyNzQ3OTgyM30.0IcvG8-Zqf633mRWGCRlzG5yDVI6njZjZGZzJfuGulw",
                     "Content-Type": "application/json"
                 }
             })
@@ -75,7 +73,7 @@ export default class AddComment extends Component {
 
                     <div className="d-flex mb-3">
                         <StarRatings
-                            rating={this.state.userReview.rate}
+                            rating={this.state.userReview.ratting}
                             starRatedColor="yellow"
                             starHoverColor="yellow"
                             changeRating={this.changeRating}

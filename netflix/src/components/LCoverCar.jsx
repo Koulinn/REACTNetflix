@@ -29,7 +29,6 @@ export default class LCoverCar extends Component {
     };
 
     componentDidMount = async () => {
-        console.log(process.env.REACT_APP_URL_DEV, '<<<< Proccess ENV')
         try {
             let promisees = []
             let auxList = []
