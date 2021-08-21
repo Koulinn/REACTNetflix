@@ -48,7 +48,14 @@ export default class CardSearch extends Component {
                         {this.state.alertDisplay && <AlertComp text="Review sent. Thanks!" variant="success"></AlertComp>}
                         {this.state.isClicked && <ReviewList movieId={this.props.movie.imdbID} movieReviews={this.props.movie.reviews ? this.props.movie.reviews : [] }></ReviewList>}
                         {this.state.isClicked && <AddComment isCommentSend={this.isCommentSend} movieId={this.props.movie.imdbID}></AddComment>}
-                        {this.state.isClicked && <p className="text-center m-0 seeDetails" onClick={() => this.props.history.push('/details/' + this.props.movie.imdbID + "/" + this.props.sectionName)}>See details</p>}
+                        {this.state.isClicked && <p className="text-center m-0 seeDetails" onClick={() => this.props.history.push(
+                            {
+                                pathname: '/details/' + this.props.movie.imdbID + "/" + this.props.sectionName,
+                                state: { movieDetail: this.props.movie }
+                            // '/details/' + this.props.movie.imdbID + "/" + this.props.sectionName
+                            })
+                        }
+                            >See details</p>}
                     </Card.Body>
                 </div>
             </Card>

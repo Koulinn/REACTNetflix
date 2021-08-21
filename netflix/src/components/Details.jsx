@@ -4,7 +4,7 @@ import AddComment from './AddComment'
 import ReviewList from './ReviewList'
 
 export default function Details(props) {
-    const [movie, setMovie] = useState(null)
+    const [movie, setMovie] = useState(props.location.state.movieDetail)
     const [notFound, setNotFound] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
     const [newComment, setNewComment] = useState(false)
@@ -12,37 +12,37 @@ export default function Details(props) {
 
     // Need to do a whole logic for the comment section of this section
     const isCommentSend = () =>{
-        setNewComment(true)
+        // setNewComment(true)
         console.log(newComment)
     }
 
 
-    useEffect(() => {
-        getMovieDetails()
-    }, [])
+    // useEffect(() => {
+    //     getMovieDetails()
+    // }, [])
 
-    useEffect(() => {
-        getMovieDetails()
-    }, [newComment])
+    // useEffect(() => {
+    //     getMovieDetails()
+    // }, [newComment])
 
-    const getMovieDetails = async () => {
-        try {
+    // const getMovieDetails = async () => {
+    //     try {
 
-            let resp = await fetch('http://localhost:3003/media?id=' + props.match.params.movieId)
+    //         let resp = await fetch(process.env.REACT_APP_URL_DEV + `/${props.match.params.movieId}`)
 
-            if (resp.ok) {
-                let moviesResp = await resp.json()
-                setIsLoading(false)
-                setMovie({ ...moviesResp })
-            }
+    //         if (resp.ok) {
+    //             let moviesResp = await resp.json()
+    //             setIsLoading(false)
+    //             setMovie({ ...moviesResp })
+    //         }
 
-        } catch (error) {
-            setNotFound(true)
+    //     } catch (error) {
+    //         setNotFound(true)
 
-        }
+    //     }
 
-    }
-    console.log(movie, '<<<<<<<<<<<<<<<<<')
+    // }
+    // console.log(movie, '<<<<<<<<<<<<<<<<<')
     return (
         <Container id="details">
             <Row>
@@ -53,9 +53,9 @@ export default function Details(props) {
                                 <h6 className="firstToUppercase">{props.match.params.sectionTitle}</h6>
                                 <h3>{movie.Title}</h3>
                                 <img className="maxHeight" src={movie.Poster} alt=""></img>
-                                <div className={movie.Ratings ? "d-block" : 'd-none'}>{movie.Ratings ? movie.Ratings.map((rating, i) => (<Badge key={i} variant="warning">{rating.Value} {rating.Source}</Badge>)) : ''}</div>
+                                {/* <div className={movie.Ratings ? "d-block" : 'd-none'}>{movie.Ratings ? movie.Ratings.map((rating, i) => (<Badge key={i} variant="warning">{rating.Value} {rating.Source}</Badge>)) : ''}</div> */}
                                 <p>Year: {movie.Year}</p>
-                                <ReviewList movieId={props.match.params.movieId}></ReviewList>
+                                <ReviewList movieId={props.match.params.movieId} movieReviews={props.location.state.movieDetail.reviews ? props.location.state.movieDetail.reviews : []}></ReviewList>
                                 <AddComment movieId={movie.imdbID} isCommentSend={isCommentSend}></AddComment>
                             </Col>)
                     }
