@@ -13,7 +13,7 @@ export default class Section extends React.Component {
     componentDidMount = async () => {
         try {
 
-            let movieRes = await fetch('http://localhost:3003/media?search=' + this.props.title)
+            let movieRes = await fetch(process.env.REACT_APP_URL_DEV + '?search=' + this.props.title)
 
             if (movieRes.ok) {
 

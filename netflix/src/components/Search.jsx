@@ -36,7 +36,7 @@ export default class Search extends Component {
           }), 5000)
         })
       } else {
-        let resp = await fetch('http://localhost:3003/media?search=' + this.state.searchInput)
+        let resp = await fetch(process.env.REACT_APP_URL_DEV + '?search=' + this.state.searchInput)
         let moviesResp = await resp.json()
         let movies = moviesResp.filter(moviesWithCover => moviesWithCover.Poster.length > 5)
         let sortedMovies = movies.sort(function(a, b) {
