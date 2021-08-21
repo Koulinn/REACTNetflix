@@ -29,14 +29,14 @@ export default class LCoverCar extends Component {
     };
 
     componentDidMount = async () => {
-        console.log(process.env.REACT_APP_CLIENT_ID, '<<<< Proccess ENV')
+        console.log(process.env.REACT_APP_URL_DEV, '<<<< Proccess ENV')
         try {
             let promisees = []
             let auxList = []
 
-            let movieRes1 = await fetch('http://localhost:3003/media?search=' + this.props.query1)
-            let movieRes2 = await fetch('http://localhost:3003/media?search=' + this.props.query2)
-            let movieRes3 = await fetch('http://localhost:3003/media?search=' + this.props.query3)
+            let movieRes1 = await fetch(process.env.REACT_APP_URL_DEV + '?search=' + this.props.query1)
+            let movieRes2 = await fetch(process.env.REACT_APP_URL_DEV + '?search=' + this.props.query2)
+            let movieRes3 = await fetch(process.env.REACT_APP_URL_DEV + '?search=' + this.props.query3)
             promisees.push(movieRes1.json())
             promisees.push(movieRes2.json())
             promisees.push(movieRes3.json())
