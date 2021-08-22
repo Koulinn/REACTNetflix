@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^4.6.0",
     "date-fns": "^2.22.1",
+    "loadash": "^1.0.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-bootstrap-star-rating": "^3.5.5-alpha.0.3",

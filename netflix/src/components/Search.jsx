@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Container, Row, FormControl, Button, Form } from 'react-bootstrap'
 import CardSearch from './CardSearch';
 import Loading from './Loading';
+import _, {debounce} from 'lodash'
+
 
 export default class Search extends Component {
 
@@ -77,6 +79,16 @@ export default class Search extends Component {
     }
   }
 
+  searchInputHandler = debounce((e) =>{
+    this.setState({
+      ...this.state,
+      searchInput: e.target.value
+    })
+
+  }, 500)
+
+  
+
 
   render() {
     return (
@@ -84,10 +96,15 @@ export default class Search extends Component {
         <Row className="d-flex flex-column">
           <h2 className="px-2 ml-2 align-items-center">Search</h2>
           <Form className="ml-3 mb-4 mt-3" inline>
-                <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(e) => this.setState({
-                  ...this.state,
-                  searchInput: e.target.value
-                })} />
+                <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(e) =>
+
+                  // this.setState({
+                    //   ...this.state,
+                    //   searchInput: e.target.value
+                    // })
+                    this.searchInputHandler(e)
+                  
+                } />
             <Button variant="outline-warning">Search</Button>
           </Form>
         </Row>
